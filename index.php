@@ -1,3 +1,19 @@
+<?php
+
+// Include function page
+include_once('lib/functions/userFuction.php');
+
+if (isset($_POST['btnLogin'])) {
+    // Corrected the way to access 'userPass'
+    $result = Authentication($_POST['userName'], $_POST['userPass']);
+    echo($result);
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +30,7 @@
         }
     </style>
 </head>
-<body style=" background-image:url('images/background.jpg'); ">
+<body style=" background-image:url('image/ba.jpg'); ">
     
 
 <div class="container" style="margin-top: 80px; "> 
@@ -35,7 +51,7 @@
                             <input type="password" name="userPass" id="userPass" class="form-control">
                         </div>
                         <div class="form-group mt-3">
-                            <input type="submit" value="Login" class="btn btn-outline-warning btn-sm">
+                            <input type="submit" value="Login" name="btnLogin" class="btn btn-outline-warning btn-sm">
                         </div>
                     </form>
                 </div>
@@ -47,7 +63,7 @@
                     Registration section
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="lib/routes/user/registration.php" method="post">
                         <div class="form-group mt-3">
                             <label for="" style="color:white">Enter your Name</label>
                             <input type="text" name="userName" id="userName" class="form-control">
@@ -80,7 +96,6 @@
 
 </div>
 
-<h1>Hello world</h1>
 
 
 </body>
